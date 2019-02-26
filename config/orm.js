@@ -1,4 +1,4 @@
-var connection = require("../config/connection");
+var connection = require("../config/connection.js");
 
 // HELPERS
 function createQmarks(num) {
@@ -6,10 +6,10 @@ function createQmarks(num) {
     for(var i =0; i < num; i++) {
         arr.push("?")
     }
-    return arr.toString();
+    return arr.toString(); 
 }
 // translate string into sql readable query  
-function translateSql(obj) {
+function translateSql(ob) {
     var arr = [];
     for (var key in ob) {
         var value = ob[key];
@@ -71,3 +71,4 @@ var orm = {
     }
 };
 
+module.exports = orm;
