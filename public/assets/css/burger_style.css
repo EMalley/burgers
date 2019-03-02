@@ -1,0 +1,9 @@
+body {
+    background-color: #ffbb3d;
+    opacity: .8;
+}
+
+.jumbotron{
+    box-shadow: 5px 5px #5a5959;
+    padding: 10px;
+}

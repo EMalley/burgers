@@ -1,6 +1,6 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1>Your Burger</h1>
+<div class="container backdrop py-5">
+    <div class="jumbotron py-5">
+        <h1 class="text-center">Eat The Burger!</h1>
         <p>Select a Burger</p>
         <panel>
             <form class="create-form">
@@ -8,47 +8,53 @@
                     <label for="newburger">Order a new burger</label>
                     <select data-placeholder="" id="newburger" name="burger">
                         <option value="hamburger">Hamburger</option>
+                        <option value="hamburger">Cheese Burger</option>
+                        <option value="hamburger">Bacon Burger</option>
+                        <option value="hamburger">California Burger</option>
                     </select>
 
                     <button type="submit" class="btn btn-success" id="addburger">
-                        <span class="fa fa-thumbs-up"></span>
+                        <span> Order this Burger</span>
                     </button>
                 </div>
             </form>
         </panel>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="leftside"><strong>Order The Burger</strong>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="leftside"><strong>Eat This Burger</strong>
+                    </div>
+                </div>
+                {{!-- RIGHT PANEL (burgers to eat) --}}
+                <div class="panelbody py-3">
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        <span>{{this.id}} - {{this.burger_name}}</span>
+                        <button type="button" class="eatburger btn btn-primary" data-id={{this.id}}>EAT
+                            ME!!!</button>
+                        <hr>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
                 </div>
             </div>
-
-            <div class="panelbody">
-                <ul>
-                    {{#each burgers}}
-                    {{#unless devoured}}
-                    <span>{{this.id}} - {{this.burger_name}}</span>
-                    <button type="button" class="eatburger btn btn-warning" id="eatBtn" data-id="{{this.id}}"></button>
-                    <hr>
-                    {{/unless}}
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="rightside">
-                    <div class="panel-body">
-                        <ul>
-                            {{#each burgers}}
-                            {{#if devoured}}
-                            <span>{{this.id}}-{{this.burger_name}}</span>
-                            <hr>
-                            {{/if}}
-                            {{/each}}
-                        </ul>
+            {{!-- Left Panel (Burgers That have been eaten) --}}
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="rightside">
+                        <div class="panel-heading" id="leftside"><strong>Burgers you've Eaten!</strong>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                {{#each burgers}}
+                                {{#if devoured}}
+                                <span>{{this.id}}-{{this.burger_name}}</span>
+                                <hr>
+                                {{/if}}
+                                {{/each}}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

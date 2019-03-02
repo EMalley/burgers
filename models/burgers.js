@@ -7,9 +7,9 @@ var burger = {
         });
     },
     insertOne: function (cols, vals, cb) {
-        orm.selectAll("burgers", cols, vals, function(res){
+        orm.selectAll("burgers", cols, vals, function (res) {
             cb(res)
-        })
+        });
     },
     updateOne: function (objColVals, condition, cb) {
         orm.selectAll("burgers", objColVals, condition, function (res) {
