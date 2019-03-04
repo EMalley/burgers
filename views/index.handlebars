@@ -3,16 +3,11 @@
         <h1 class="text-center">Eat The Burger!</h1>
         <p>Select a Burger</p>
         <panel>
+            {{!-- CHANGWE THIS FROM DROP DOWN TO INPUT! --}}
             <form class="create-form">
                 <div class="form-group">
-                    <label for="newburger">Order a new burger</label>
-                    <select data-placeholder="" id="newburger" name="burger">
-                        <option value="hamburger">Hamburger</option>
-                        <option value="hamburger">Cheese Burger</option>
-                        <option value="hamburger">Bacon Burger</option>
-                        <option value="hamburger">California Burger</option>
-                    </select>
-
+                    <label type= "text" for="newburger" id="newburger" name="burger">Order a new burger</label>
+                    <input type="text" data-placeholder="" id="newburger" name="burger">
                     <button type="submit" class="btn btn-success" id="addburger">
                         <span> Order this Burger</span>
                     </button>
