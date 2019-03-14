@@ -41,20 +41,20 @@ var orm = {
             cb(results)
         });
     },
-    updateOne: function (table, objColVals, condidtion, cb) {
-        var dbQuery = "UPDATE " + table + "SET " + translateSql(objColVals) + "WHERE" + condidtion;
+    updateOne: function (table, objColVals, condition, cb) {
+        var dbQuery = "UPDATE " + table + " SET " + translateSql(objColVals) + " WHERE " + condition;
 
         console.log(dbQuery)
-        connection.query(dbQuery, vals, function (err, results) {
+        connection.query(dbQuery, function (err, results) {
             if (err) {throw err};
             cb(results)
         });
     },
-    deleteOne: function (table, condidtion, cb) {
-        var dbQuery = "DELETE FROM " + table + "WHERE " + condidtion;
+    deleteOne: function (table, condition, cb) {
+        var dbQuery = "DELETE FROM " + table + "WHERE " + condition;
         console.log(dbQuery);
 
-        connection.query(dbQuery, vals, function (err, results) {
+        connection.query(dbQuery, function (err, results) {
             if (err) {throw err;}
             cb(results)
         });
