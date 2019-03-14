@@ -4,7 +4,7 @@ var connection = require("../config/connection.js");
 function createQmarks(num) {
     var arr = [];
     for (var i = 0; i < num; i++) {
-        arr.push("?")
+        arr.push("?");
     }
     return arr.toString();
 }
@@ -23,43 +23,41 @@ function translateSql(ob) {
     return arr.toString();
 }
 
+// select all function for database, create a connection to database and use a call back to retreive the results
 var orm = {
-    // select all function for database, create a connection to database and use a call back to retreive the results
     selectAll: function (table, cb) {
         var dbQuery = "SELECT * FROM " + table + ";";
         connection.query(dbQuery, function (err, results) {
-            if (err) throw err;
-            console.log("results: ", results);
+            if (err) {throw err;}
             cb(results)
-        })
+        });
     },
-    insertOne: function (table, cols, vals, cd) {
+    insertOne: function (table, cols, vals, cb) {
         var dbQuery = "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + createQmarks(vals.length) + ") ";
 
         console.log(dbQuery)
         connection.query(dbQuery, vals, function (err, results) {
-            if (err) throw err;
+            if (err) {throw err;}
             cb(results)
-        })
+        });
     },
     updateOne: function (table, objColVals, condidtion, cb) {
         var dbQuery = "UPDATE " + table + "SET " + translateSql(objColVals) + "WHERE" + condidtion;
 
         console.log(dbQuery)
         connection.query(dbQuery, vals, function (err, results) {
-            if (err)
-                throw err;
+            if (err) {throw err};
             cb(results)
-        })
+        });
     },
     deleteOne: function (table, condidtion, cb) {
         var dbQuery = "DELETE FROM " + table + "WHERE " + condidtion;
         console.log(dbQuery);
 
         connection.query(dbQuery, vals, function (err, results) {
-            if (err) throw err;
+            if (err) {throw err;}
             cb(results)
-        })
+        });
     }
 };
 

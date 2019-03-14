@@ -6,7 +6,7 @@
             {{!-- CHANGWE THIS FROM DROP DOWN TO INPUT! --}}
             <form class="create-form">
                 <div class="form-group">
-                    <label type= "text" for="newburger" id="newburger" name="burger">Order a new burger</label>
+                    <label type="text" for="newburger" id="newburger" name="burger">Order a new burger</label>
                     <input type="text" data-placeholder="" id="newburger" name="burger">
                     <button type="submit" class="btn btn-success" id="addburger">
                         <span> Order this Burger</span>
@@ -44,7 +44,7 @@
                             <ul>
                                 {{#each burgers}}
                                 {{#if devoured}}
-                                <span>{{this.id}}-{{this.burger_name}}</span>
+                                <span>{{this.id}} - {{this.burger_name}}</span>
                                 <hr>
                                 {{/if}}
                                 {{/each}}

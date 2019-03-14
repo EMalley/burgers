@@ -1,7 +1,7 @@
 var express = require("express");
-var burger = require("../models/burgers.js");
-
 var router = express.Router();
+
+var burger = require("../models/burgers.js");
 // get method for handlebaers
 router.get("/", function (req, res) {
     burger.selectAll(function (data) {
@@ -27,16 +27,15 @@ router.get("/", function (req, res) {
 
         console.log("condition:", condition);
         burger.updateOne({ devoured: req.body.devoured }, condition, function (result) {
-            if (result, changedRows === 0) {
+            if (result.changedRows === 0) {
                 return res.status(404).end();
             } else {
                 res.status(200).end();
             }
         });
     });
-    router.delete(function(req,res){
+    router.delete("/api/burgers/:id", function(req,res){
         var condition = "id = " + req.params.id;
-        console.log("condition: ", condition);
 
         burger.deleteOne(condition, function(result){
             if (result, changedRows === 0) {
