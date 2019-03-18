@@ -30,8 +30,14 @@ $(function () {
             location.reload()
         });
     });
-            // $.ajax({
-            //     type: "DELETE",
-            //     url: "/api/burgers/" + id
-            // }).then(location.reload());
+
+    $(document).on("click", ".deleteBtn", function (){
+        var id = $(this).data("id");
+        $.ajax({
+            type: "DELETE",
+            url: "/api/burgers/" + id
+        });
+        // }).then(location.reload());
+        console.log("Deleted Burger" , id);
+    })
 });

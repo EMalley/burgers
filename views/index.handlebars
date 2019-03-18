@@ -44,7 +44,10 @@
                             <ul>
                                 {{#each burgers}}
                                 {{#if devoured}}
-                                <span>{{this.id}} - {{this.burger_name}}</span>
+                                <span>
+                                    {{this.id}} - {{this.burger_name}}
+                                </span>
+                                    <button type= "button" class= "deleteBtn btn btn-danger" data-id={{this.id}}>Throw out the trash.</button>
                                 <hr>
                                 {{/if}}
                                 {{/each}}
@@ -52,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                {{!-- {{this.id}} - {{this.burger_name}} --}}
         </div>
     </div>
 </div>
