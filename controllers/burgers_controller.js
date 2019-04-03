@@ -37,12 +37,11 @@ router.get("/", function (req, res) {
     });
             router.delete("/api/burgers/:id", function(req,res){
                 var condition = "id = " + req.params.id;
-        
                 burger.deleteOne(condition, function(result){
-                    if (result, changedRows === 0) {
-                        return res.status(404).end();
+                    if (result === 0) {
+                        return res.status(200).end();
                     } else {
-                        res.status(200).end();
+                        res.status(404).end();
                     } 
                 });
             });

@@ -31,13 +31,12 @@ $(function () {
         });
     });
 
-    $(document).on("click", ".deleteBtn", function (){
+    $(document).on("click", ".deleteBtn", function () {
         var id = $(this).data("id");
         $.ajax({
             type: "DELETE",
             url: "/api/burgers/" + id
-        });
-        // }).then(location.reload());
-        console.log("Deleted Burger" , id);
+        }).then(location.reload());
+        console.log("Deleted Burger", id);
     })
 });
