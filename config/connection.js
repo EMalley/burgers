@@ -1,12 +1,18 @@
 // Connect to Database and require dependices.
-var mysql =require("mysql");
-connection = mysql.createConnection({
+var mysql = require("mysql")
+    PORT = process.env.PORT || 8080;
+var connection;
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
     host: "localhost",
-    port:3306,
-    user:"root",
-    password:"root",
-    database:"burgers_db"
-});
+    port: 3306,
+    user: "root",
+    password: "root",
+    database: "burgers_db"
+  });
+}
 
 // create connection and console log to see if connected/ export module
 
