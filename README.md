@@ -6,4 +6,11 @@ This app lets users input names of burgers they'd like to eat. Whenever a user s
 https://radiant-cove-92286.herokuapp.com/
 
 ### Technology Used: 
-HTML|CSS|Javascript|Jquery|MySQL|Handlebars|Express.JS|Node.JS|MVC|OOP|
+* HTML5
+* CSS3
+* Bootstrap
+* Handlebars.Js
+* Express.Js
+* MySQL
+* OOP
+* CRUD 
